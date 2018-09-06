@@ -1,0 +1,80 @@
+
+
+
+
+<div class="example-container">
+  <mat-form-field hintLabel ="Max 15 characters">
+    <input matInput #name placeholder="Nom" maxlength="15" [(ngModel)]="user.nom" required>
+    <mat-hint align="end"> {{name.value?.length || 0}}/15</mat-hint>
+  </mat-form-field>
+
+<mat-form-field hintLabel="Max 15 characters">
+  <input matInput #prenom placeholder="Prenom" maxlength="15" [(ngModel)]="user.prenom" required>
+  <mat-hint align="end"> {{prenom.value?.length || 0}}/15</mat-hint>
+</mat-form-field>
+
+<mat-form-field hintLabel="Max 15 characters">
+  <input matInput #username placeholder="UserName" maxlength="15" [(ngModel)]="user.username" required>
+  <mat-hint align="end"> {{username.value?.length || 0}}/15</mat-hint>
+</mat-form-field>
+
+  <mat-form-field>
+<input matInput placeholder="Enter your email" [formControl]="email" pattern="^[a-zA-Z0-9_.+-]+@soprahr+\.[a-zA-Z0-9_.+-]+$"
+  [(ngModel)]="user.email" required>
+    <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+    <mat-error *ngIf="email.errors?.pattern">Invalid Emaill</mat-error>
+  </mat-form-field>
+<mat-form-field>
+<input matInput #pwd maxLength="12" minLength="6" placeholder="Enter your password" [type]="hide ? 'password' : 'text'" [formControl]="password"
+  [(ngModel)]="user.password">
+<mat-hint align="end"> {{pwd.value?.length || 0}}/12</mat-hint>
+  <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+<mat-error *ngIf="email.invalid">Invalid Password Min 6 char & max 12 char with  uppercase & lowercase</mat-error>
+
+</mat-form-field>
+
+<div class="button-row">
+<div *ngIf="name.value?.length >0 && prenom.value?.length > 0 && username.value?.length > 0 && !email.invalid && !email.errors?.pattern &&   !password.invalid">
+<button mat-stroked-button (click)="submit()" >Submit</button>
+</div>
+
+<div *ngIf="name.value?.length == 0 || prenom.value?.length == 0 || username.value?.length == 0  || email.invalid || email.errors?.pattern || password.invalid">
+<button mat-stroked-button disabled>Submit</button>
+</div>
+
+</div>
+
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+  <!--- Note that these columns can be defined in any order.
+        The actual rendered columns are set as a property on the row definition" -->
+
+  <!-- Position Column -->
+  <ng-container matColumnDef="position">
+    <th mat-header-cell *matHeaderCellDef> No. </th>
+    <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+  </ng-container>
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef> Name </th>
+    <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+  </ng-container>
+
+  <!-- Weight Column -->
+  <ng-container matColumnDef="weight">
+    <th mat-header-cell *matHeaderCellDef> Weight </th>
+    <td mat-cell *matCellDef="let element"> {{element.weight}} </td>
+  </ng-container>
+
+  <!-- Symbol Column -->
+  <ng-container matColumnDef="symbol">
+    <th mat-header-cell *matHeaderCellDef> Symbol </th>
+    <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+
+
