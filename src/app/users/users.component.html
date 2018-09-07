@@ -44,33 +44,35 @@
 
 </div>
 
-<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+  {{dataSource | json}}
+<table mat-table [(dataSource)]="dataSource" class="mat-elevation-z8">
+
 
   <!--- Note that these columns can be defined in any order.
         The actual rendered columns are set as a property on the row definition" -->
 
-  <!-- Position Column -->
-  <ng-container matColumnDef="position">
-    <th mat-header-cell *matHeaderCellDef> No. </th>
-    <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+  <!-- nom Column -->
+  <ng-container matColumnDef="nom">
+    <th mat-header-cell *matHeaderCellDef> Nom </th>
+    <td mat-cell *matCellDef="let element"> {{element.nom}} </td>
   </ng-container>
 
-  <!-- Name Column -->
-  <ng-container matColumnDef="name">
-    <th mat-header-cell *matHeaderCellDef> Name </th>
-    <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+  <!-- prenom Column -->
+  <ng-container matColumnDef="prenom">
+    <th mat-header-cell *matHeaderCellDef> Prenom </th>
+    <td mat-cell *matCellDef="let element"> {{element.prenom}} </td>
   </ng-container>
 
-  <!-- Weight Column -->
-  <ng-container matColumnDef="weight">
-    <th mat-header-cell *matHeaderCellDef> Weight </th>
-    <td mat-cell *matCellDef="let element"> {{element.weight}} </td>
+  <!-- username Column -->
+  <ng-container matColumnDef="username">
+    <th mat-header-cell *matHeaderCellDef> Username </th>
+    <td mat-cell *matCellDef="let element"> {{element.username}} </td>
   </ng-container>
 
-  <!-- Symbol Column -->
-  <ng-container matColumnDef="symbol">
-    <th mat-header-cell *matHeaderCellDef> Symbol </th>
-    <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+  <!-- email Column -->
+  <ng-container matColumnDef="email">
+    <th mat-header-cell *matHeaderCellDef> Email </th>
+    <td mat-cell *matCellDef="let element"> {{element.email}} </td>
   </ng-container>
 
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

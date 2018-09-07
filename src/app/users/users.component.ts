@@ -8,6 +8,9 @@ import { FormControl, Validators } from '@angular/forms';
 
 
 
+
+
+
 @Component({
   selector: 'app-users',
   templateUrl: './users.component.html',
@@ -19,7 +22,9 @@ export class UsersComponent implements OnInit {
   public password: any = new FormControl('', [Validators.required, Validators.pattern(this.pwdPattern)]);
   public hide = true;
   public user: User;
-
+  public ELEMENT_DATA: Array<User> = [{ "email": "ahmed@soprahr.com", "password": "Ahmed12", "nom": "cvwcx", "prenom": "xcvxcw", "username": "cxwvcxvwx" }];
+  public displayedColumns: string[] = ['nom', 'prenom', 'username', 'email'];
+  public dataSource = this.ELEMENT_DATA;
   constructor() {
     this.user = new User();
   }
@@ -34,6 +39,10 @@ export class UsersComponent implements OnInit {
   }
   submit() {
     console.log('bonjour');
-    console.log(this.user)
+    console.log(this.user);
+    this.ELEMENT_DATA.push(this.user.json());
+    this.dataSource = this.ELEMENT_DATA;
+    console.log(this.dataSource)
+
   }
 }
