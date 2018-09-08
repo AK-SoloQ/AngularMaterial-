@@ -2,10 +2,22 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { Routes, RouterModule } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
+
+
+import { D3Service, D3_DIRECTIVES } from './d3';
+
+import { GraphComponent } from './visuals/graph/graph.component';
+import { SHARED_VISUALS } from './visuals/shared';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { UsersComponent } from './users/users.component';
 import { ArbreComponent } from './arbre/arbre.component';
+
+
 
 
 /**
@@ -19,11 +31,15 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {MatTableModule} from '@angular/material/table';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
     UsersComponent,
-    ArbreComponent
+    ArbreComponent,
+    GraphComponent,
+    ...SHARED_VISUALS,
+    ...D3_DIRECTIVES
   ],
   imports: [
     BrowserModule,
@@ -40,9 +56,11 @@ import {MatTableModule} from '@angular/material/table';
     MatInputModule,
     FormsModule,
     ReactiveFormsModule,
-    MatTableModule
+    MatTableModule,
+    CommonModule,
+    HttpClientModule,
   ],
-  providers: [],
+  providers: [D3Service],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
