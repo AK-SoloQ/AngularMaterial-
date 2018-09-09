@@ -19,7 +19,7 @@ import { BehaviorSubject } from 'rxjs';
   styleUrls: ['./users.component.css']
 })
 export class UsersComponent implements OnInit {
-  public pwdPattern = "^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).{6,12}$";
+  public pwdPattern = '^[a-z0-9A-Z_-]{6,12}$';
   public email: any = new FormControl('', [Validators.required, Validators.email]);
   public password: any = new FormControl('', [Validators.required, Validators.pattern(this.pwdPattern)]);
   public hide = true;

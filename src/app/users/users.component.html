@@ -21,11 +21,11 @@
     <mat-error *ngIf="email.errors?.pattern">Invalid Emaill</mat-error>
   </mat-form-field>
   <mat-form-field>
-    <input matInput #pwd maxLength="12" minLength="6" placeholder="Enter your password" [type]="hide ? 'password' : 'text'"
+    <input matInput maxLength="12" minLength="6" placeholder="Enter your password" [type]="hide ? 'password' : 'text'"
       [formControl]="password" [(ngModel)]="user.password">
-    <mat-hint align="end"> {{pwd.value?.length || 0}}/12</mat-hint>
+    <mat-hint align="end"> {{password.value?.length || 0}}/12</mat-hint>
     <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
-    <mat-error *ngIf="email.invalid">Invalid Password Min 6 char & max 12 char with uppercase & lowercase</mat-error>
+    <mat-error *ngIf="password.invalid">Invalid Password Min 6 char & max 12 char with uppercase & lowercase</mat-error>
 
   </mat-form-field>
 

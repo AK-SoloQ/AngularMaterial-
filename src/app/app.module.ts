@@ -29,6 +29,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {MatTableModule} from '@angular/material/table';
+import { FlexboxComponent } from './flexbox/flexbox.component';
 
 
 
@@ -39,7 +40,8 @@ import {MatTableModule} from '@angular/material/table';
     ArbreComponent,
     GraphComponent,
     ...SHARED_VISUALS,
-    ...D3_DIRECTIVES
+    ...D3_DIRECTIVES,
+    FlexboxComponent
   ],
   imports: [
     BrowserModule,
