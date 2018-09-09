@@ -1,0 +1,10 @@
+.maiin{
+  display: flex;
+  flex-direction: row;
+
+  justify-content: space-around;
+  justify-items: center;
+
+  align-content: center;
+  align-items: center;
+}

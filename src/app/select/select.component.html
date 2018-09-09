@@ -1,0 +1,21 @@
+<p>
+  select works!
+</p>
+<div class="maiin">
+  <mat-form-field>
+
+    <mat-select placeholder="Favorite food" (valueChange)=" onChange($event) " [(ngModel)]="choix">
+      <mat-option *ngFor="let food of foods" [value]="food.value">
+        {{food.viewValue}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-select placeholder="Favorite food">
+      <mat-option *ngFor="let food of types" [value]="food.value">
+        {{food.viewValue}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>

@@ -30,6 +30,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {MatTableModule} from '@angular/material/table';
 import { FlexboxComponent } from './flexbox/flexbox.component';
+import { SelectComponent } from './select/select.component';
 
 
 
@@ -41,7 +42,8 @@ import { FlexboxComponent } from './flexbox/flexbox.component';
     GraphComponent,
     ...SHARED_VISUALS,
     ...D3_DIRECTIVES,
-    FlexboxComponent
+    FlexboxComponent,
+    SelectComponent
   ],
   imports: [
     BrowserModule,

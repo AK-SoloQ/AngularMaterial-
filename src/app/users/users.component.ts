@@ -55,8 +55,8 @@ export class UsersComponent implements OnInit {
   }
   delete(user) {
     console.log(user);
-    let index = this.ELEMENT_DATA.indexOf(user);
-    this.ELEMENT_DATA.splice(index,1);
+    const index = this.ELEMENT_DATA.indexOf(user);
+    this.ELEMENT_DATA.splice(index, 1);
     this.dataSource = [...this.ELEMENT_DATA];
 
     console.log(index);
